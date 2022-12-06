@@ -1,6 +1,15 @@
 .wpwc-admin {
     --primary: #4879ab;
     --secondary: #073a6e;
+    --gray: #c5c6c7;
+}
+
+.wpwc-admin *,
+.wpwc-admin *:hover,
+.wpwc-admin *:active,
+.wpwc-admin *:focus {
+    outline: 0 none !important;
+    box-shadow: none !important;
 }
 
 .wpwc-admin .wpwc-button:link,
@@ -42,7 +51,45 @@
     margin: 0 0 0.5em 0;
 }
 
+.wpwc-admin .wpwc-tabs {
+    width: 80%;
+}
+
+.wpwc-admin .wpwc-tabs ul {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-end;
+    width: 100%;
+}
+
+.wpwc-admin .wpwc-tabs ul li {
+    flex: 1;
+    outline: 0 none;
+}
+
+.wpwc-admin .wpwc-tabs ul li a:link,
+.wpwc-admin .wpwc-tabs ul li a:visited,
+.wpwc-admin .wpwc-tabs ul li a:hover {
+    display: inline-flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    gap: 0.4em;
+    width: 100%;
+    padding: 0.6em 0;
+    text-decoration: none;
+    font-weight: bold;
+    color: var( --gray );
+    border-bottom: 2px solid var( --gray );
+    outline: 0 none;
+}
+
+.wpwc-admin .wpwc-tabs ul li a:hover,
+.wpwc-admin .wpwc-tabs ul li.ui-state-active a {
+    color: var( --secondary );
+    border-bottom-color: var( --secondary );
+}
+
 .wpwc-admin .wpwc-footer p {
     margin-top: 2em;
-    opacity: 0.5;
+    color: var( --gray );
 }
