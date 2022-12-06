@@ -10,6 +10,7 @@
      * Text Domain: wpwc
      */
 
+    $__wpwc_build = '0.01 [ALPHA]';
     $__wpwc_capability = 'manage_options';
 
     require_once __DIR__ . '/src/functions.php';
