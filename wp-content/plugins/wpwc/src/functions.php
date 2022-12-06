@@ -93,6 +93,8 @@
 
         require_once __DIR__ . '/admin/wpwc.php';
 
+        wp_register_style( '__wpwc_admin', plugin_dir_url( __FILE__ ) . 'static/styles/admin.css' );
+
     } );
 
 ?>

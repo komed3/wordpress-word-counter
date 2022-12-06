@@ -14,10 +14,12 @@
 
         global $__wpwc_build;
 
+        wp_enqueue_style( '__wpwc_admin' );
+
         ?><div class="wpwc-admin">
             <h1>
                 <span><?php _e( 'WordPress Word Counter', 'wpwc' ); ?></span>
-                <a href="https://github.com/komed3/wordpress-word-counter" target="_blank" class="donate">
+                <a href="https://github.com/komed3/wordpress-word-counter" target="_blank" class="wpwc-button donate">
                     <span class="dashicons dashicons-heart"></span>
                     <span class="label"><?php _e( 'Donate', 'wpwc' ); ?></span>
                 </a>
@@ -31,13 +33,13 @@
             </div>
             <div class="wpwc-refresh">
                 <h2><?php _e( 'Refresh statistics', 'wpwc' ); ?></h2>
-                <a href="#" class="update">
+                <a href="#" class="wpwc-button update">
                     <span class="dashicons dashicons-update"></span>
                     <span class="label"><?php _e( 'Refresh', 'wpwc' ); ?></span>
                 </a>
             </div>
-            <?php if( $wpdb = __wpwc_get() ) { ?>
-                <div class="wpwc-tabs"></div>
+            <?php if( $wpwc = __wpwc_get() ) { ?>
+                <div class="wpwc-tabs">
                     <ul>
                         <li><a href="#wpwc__general">
                             <span class="dashicons dashicons-chart-bar"></span>

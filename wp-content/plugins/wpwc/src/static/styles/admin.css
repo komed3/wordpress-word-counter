@@ -1,0 +1,48 @@
+.wpwc-admin {
+    --primary: #4879ab;
+    --secondary: #073a6e;
+}
+
+.wpwc-admin .wpwc-button:link,
+.wpwc-admin .wpwc-button:visited,
+.wpwc-admin .wpwc-button:hover {
+    display: inline-flex;
+    flex-flow: row nowrap;
+    gap: 0.3rem;
+    padding: 0.2rem 0.4rem;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var( --primary );
+    border: 1px solid var( --primary );
+    border-radius: 4px;
+}
+
+.wpwc-admin .wpwc-button:hover {
+    color: var( --secondary );
+    border-color: var( --secondary );
+}
+
+.wpwc-admin h1 .donate {
+    margin-left: 1em;
+}
+
+.wpwc-admin .wpwc-intro p {
+    max-width: 600px;
+    font-size: 1.2em;
+}
+
+.wpwc-admin .wpwc-refresh {
+    margin: 2em 0;
+    padding: 0.5em 1em;
+    border-left: 0.5em solid var( --primary );
+}
+
+.wpwc-admin .wpwc-refresh h2 {
+    margin: 0 0 0.5em 0;
+}
+
+.wpwc-admin .wpwc-footer p {
+    margin-top: 2em;
+    opacity: 0.5;
+}
