@@ -15,6 +15,7 @@
         global $__wpwc_build;
 
         wp_enqueue_style( '__wpwc_admin' );
+        wp_enqueue_script( '__wpwc' );
 
         ?><div class="wpwc-admin">
             <h1>

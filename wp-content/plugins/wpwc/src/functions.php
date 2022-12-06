@@ -94,6 +94,7 @@
         require_once __DIR__ . '/admin/wpwc.php';
 
         wp_register_style( '__wpwc_admin', plugin_dir_url( __FILE__ ) . 'static/styles/admin.css' );
+        wp_register_script( '__wpwc', plugin_dir_url( __FILE__ ) . 'static/scripts/admin.js', [ 'jquery-ui-tabs' ] );
 
     } );
 
