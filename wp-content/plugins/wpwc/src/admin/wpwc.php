@@ -2,12 +2,6 @@
 
     global $__wpwc_capability;
 
-    function __wpwc_admin() {
-
-
-
-    }
-
     add_management_page(
         __( 'Word Counter', 'wpwc' ),
         __( 'Word Counter', 'wpwc' ),
@@ -15,5 +9,11 @@
         'wpwc',
         '__wpwc_admin'
     );
+
+    function __wpwc_admin() {
+
+
+
+    }
 
 ?>
