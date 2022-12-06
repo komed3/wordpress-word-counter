@@ -5,6 +5,11 @@
         bool $title = true
     ) {
 
+        $wc = [
+            'timestamp' => date( 'c' ),
+            'time' => microtime( true )
+        ];
+
         foreach( get_posts( array_merge( [
             'post_type' => 'any',
             'post_status' => 'any',
@@ -29,6 +34,7 @@
 
             }
 
+            $wc['results']++;
             $wc['any'] += $count;
 
             /* types */
@@ -70,6 +76,8 @@
             }
 
         }
+
+        $wc['time'] = microtime( true ) - $wc['time'];
 
         return $wc;
 
