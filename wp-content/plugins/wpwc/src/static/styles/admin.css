@@ -109,7 +109,7 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    gap: 0.8em;
+    gap: 0.6em;
     width: 260px;
     height: 100px;
     color: var( --white );
