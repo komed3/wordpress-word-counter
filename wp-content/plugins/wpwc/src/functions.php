@@ -85,7 +85,49 @@
 
     function __wpwc_get() {
 
-        return empty( $wpwc =json_decode( get_option( '__wpwc', '{}' ), true ) ) ? false : $wpwc;
+        return empty( $wpwc = json_decode( get_option( '__wpwc', '{}' ), true ) ) ? false : $wpwc;
+
+    }
+
+    function __wpwc_calendar(
+        array $wpwc,
+        string $date_type = 'month'
+    ) {
+
+        if( empty( $data = array_reverse(
+            array_slice( $wpwc[ $date_type ], 0, 99 )
+        ) ) ) return '';
+
+        ?><div class="wpwc-calendar"><?php
+
+        $max_val = max( 1, max( $data ) );
+
+        $axis = floor( $max_val / 2 / pow( 10, floor( log10( $max_val / 2 ) ) ) ) *
+            pow( 10, floor( log10( $max_val / 2 ) ) );
+
+        foreach( $data as $label => $value ) {
+
+            ?><div class="wpwc-calendar-column" style="height: <?php
+                echo $value == 0 ? 0 : max( 5, ( $value / $max_val * 100 ) );
+            ?>%;" title="<?php printf(
+                __( '%s / %s words', 'wpwc' ),
+                $label,
+                number_format_i18n( $value )
+            ); ?>"></div><?php
+
+        }
+
+        ?><div class="wpwc-calendar-axis">
+            <?php for( $a = $axis; $a <= $max_val; $a += $axis ) { ?>
+                <div class="wpwc-calendar-axis-line" style="bottom: <?php
+                        echo $a == 0 ? 0 : ( $a / $max_val * 100 );
+                    ?>%;">
+                    <div class="label"><?php
+                        echo number_format_i18n( $a );
+                    ?></div>
+                </div>
+            <?php } ?>
+        </div></div><?php
 
     }
 

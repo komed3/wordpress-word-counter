@@ -78,6 +78,7 @@
                                 <div class="label"><?php _e( 'Date', 'oipm' ); ?></div>
                             </div>
                         </div>
+                        <?php __wpwc_calendar( $wpwc ); ?>
                     </div>
                     <div class="wpwc-tab" id="wpwc__type"></div>
                     <div class="wpwc-tab" id="wpwc__author"></div>
