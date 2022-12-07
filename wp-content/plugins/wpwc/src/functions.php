@@ -89,7 +89,7 @@
 
     }
 
-    function __wpwc_calendar(
+    function __wpwc_chart(
         array $wpwc,
         string $date_type = 'month'
     ) {

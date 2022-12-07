@@ -24,6 +24,10 @@
                     <span class="dashicons dashicons-heart"></span>
                     <span class="label"><?php _e( 'Donate', 'wpwc' ); ?></span>
                 </a>
+                <a href="https://github.com/komed3/wordpress-word-counter/issues" target="_blank" class="wpwc-button feedback">
+                    <span class="dashicons dashicons-megaphone"></span>
+                    <span class="label"><?php _e( 'Feedback', 'wpwc' ); ?></span>
+                </a>
             </h1>
             <div class="wpwc-intro">
                 <p><?php printf(
@@ -78,7 +82,7 @@
                                 <div class="label"><?php _e( 'Date', 'oipm' ); ?></div>
                             </div>
                         </div>
-                        <?php __wpwc_calendar( $wpwc ); ?>
+                        <?php __wpwc_chart( $wpwc ); ?>
                     </div>
                     <div class="wpwc-tab" id="wpwc__type"></div>
                     <div class="wpwc-tab" id="wpwc__author"></div>
