@@ -2,6 +2,7 @@
     --primary: #4879ab;
     --secondary: #073a6e;
     --gray: #c5c6c7;
+    --white: #f5f5f5;
 }
 
 .wpwc-admin *,
@@ -43,7 +44,7 @@
 
 .wpwc-admin .wpwc-refresh {
     margin: 2em 0;
-    padding: 0.5em 1em;
+    padding: 0.6em 0 0.8em 1em;
     border-left: 0.5em solid var( --primary );
 }
 
@@ -87,6 +88,42 @@
 .wpwc-admin .wpwc-tabs ul li.ui-state-active a {
     color: var( --secondary );
     border-bottom-color: var( --secondary );
+}
+
+.wpwc-admin .wpwc-tabs .wpwc-tab {
+    padding: 1em 0;
+}
+
+.wpwc-admin .wpwc-boxes {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: stretch;
+    gap: 2em;
+    margin: 2em 0;
+}
+
+.wpwc-admin .wpwc-boxes .wpwc-box {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8em;
+    width: 260px;
+    height: 100px;
+    color: var( --white );
+    background: var( --primary );
+}
+
+.wpwc-admin .wpwc-boxes .wpwc-box .value {
+    font-size: 2.6em;
+    font-weight: bold;
+}
+
+.wpwc-admin .wpwc-boxes .wpwc-box .label {
+    text-transform: uppercase;
+    font-size: 1.2em;
+    color: var( --gray );
 }
 
 .wpwc-admin .wpwc-footer p {

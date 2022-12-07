@@ -85,7 +85,7 @@
 
     function __wpwc_get() {
 
-        return get_option( '__wpwc', false );
+        return empty( $wpwc =json_decode( get_option( '__wpwc', '{}' ), true ) ) ? false : $wpwc;
 
     }
 

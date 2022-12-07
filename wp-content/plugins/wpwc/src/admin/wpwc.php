@@ -63,7 +63,22 @@
                             <span class="label"><?php _e( 'Taxonomies', 'wpwc' ); ?></span>
                         </a></li>
                     </ul>
-                    <div class="wpwc-tab" id="wpwc__general"></div>
+                    <div class="wpwc-tab" id="wpwc__general">
+                        <div class="wpwc-boxes">
+                            <div class="wpwc-box">
+                                <div class="value"><?php echo number_format_i18n( $wpwc['any'] ); ?></div>
+                                <div class="label"><?php _e( 'Words', 'oipm' ); ?></div>
+                            </div>
+                            <div class="wpwc-box">
+                                <div class="value"><?php echo number_format_i18n( $wpwc['results'] ); ?></div>
+                                <div class="label"><?php _e( 'Results', 'oipm' ); ?></div>
+                            </div>
+                            <div class="wpwc-box">
+                                <div class="value"><?php echo date_i18n( __( 'm/d/Y', 'wpwc' ), strtotime( $wpwc['timestamp'] ) ); ?></div>
+                                <div class="label"><?php _e( 'Date', 'oipm' ); ?></div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="wpwc-tab" id="wpwc__type"></div>
                     <div class="wpwc-tab" id="wpwc__author"></div>
                     <div class="wpwc-tab" id="wpwc__date"></div>
