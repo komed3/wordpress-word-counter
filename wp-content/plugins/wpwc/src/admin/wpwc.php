@@ -33,7 +33,7 @@
                 <p><?php printf(
                     __( '<b>WordPress Word Counter</b> gives you access to statistics regarding your <b>published ' .
                         'texts</b> with just one click. Who has posted? When did you publish the most words? In ' .
-                        'which categories is text still missing?', 'oipm' )
+                        'which categories is text still missing?', 'wpwc' )
                 ); ?></p>
             </div>
             <div class="wpwc-refresh">
@@ -71,20 +71,22 @@
                         <div class="wpwc-boxes">
                             <div class="wpwc-box">
                                 <div class="value"><?php echo number_format_i18n( $wpwc['any'] ); ?></div>
-                                <div class="label"><?php _e( 'Words', 'oipm' ); ?></div>
+                                <div class="label"><?php _e( 'Words', 'wpwc' ); ?></div>
                             </div>
                             <div class="wpwc-box">
                                 <div class="value"><?php echo number_format_i18n( $wpwc['results'] ); ?></div>
-                                <div class="label"><?php _e( 'Results', 'oipm' ); ?></div>
+                                <div class="label"><?php _e( 'Results', 'wpwc' ); ?></div>
                             </div>
                             <div class="wpwc-box">
                                 <div class="value"><?php echo date_i18n( __( 'm/d/Y', 'wpwc' ), strtotime( $wpwc['timestamp'] ) ); ?></div>
-                                <div class="label"><?php _e( 'Date', 'oipm' ); ?></div>
+                                <div class="label"><?php _e( 'Date', 'wpwc' ); ?></div>
                             </div>
                         </div>
                         <?php __wpwc_chart( $wpwc ); ?>
                     </div>
-                    <div class="wpwc-tab" id="wpwc__type"></div>
+                    <div class="wpwc-tab" id="wpwc__type">
+                        <?php __wpwc_bar( $wpwc['status'] ); ?>
+                    </div>
                     <div class="wpwc-tab" id="wpwc__author"></div>
                     <div class="wpwc-tab" id="wpwc__date"></div>
                     <div class="wpwc-tab" id="wpwc__tax"></div>

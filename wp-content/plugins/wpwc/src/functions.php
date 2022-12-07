@@ -98,7 +98,7 @@
             array_slice( $wpwc[ $date_type ], 0, 99 )
         ) ) ) return '';
 
-        ?><div class="wpwc-calendar"><?php
+        ?><div class="wpwc-chart"><?php
 
         $max_val = max( 1, max( $data ) );
 
@@ -107,7 +107,7 @@
 
         foreach( $data as $label => $value ) {
 
-            ?><div class="wpwc-calendar-column" style="height: <?php
+            ?><div class="wpwc-chart-column" style="height: <?php
                 echo $value == 0 ? 0 : max( 5, ( $value / $max_val * 100 ) );
             ?>%;" title="<?php printf(
                 __( '%s / %s words', 'wpwc' ),
@@ -117,9 +117,9 @@
 
         }
 
-        ?><div class="wpwc-calendar-axis">
+        ?><div class="wpwc-chart-axis">
             <?php for( $a = $axis; $a <= $max_val; $a += $axis ) { ?>
-                <div class="wpwc-calendar-axis-line" style="bottom: <?php
+                <div class="wpwc-chart-axis-line" style="bottom: <?php
                         echo $a == 0 ? 0 : ( $a / $max_val * 100 );
                     ?>%;">
                     <div class="label"><?php
@@ -128,6 +128,38 @@
                 </div>
             <?php } ?>
         </div></div><?php
+
+    }
+
+    function __wpwc_bar(
+        array $data = []
+    ) {
+
+        arsort( $data );
+
+        $all = max( 1, array_sum( $data ) );
+
+        ?><div class="wpwc-bar-chart">
+            <div class="bars">
+                <?php foreach( $data as $label => $value ) { ?>
+                    <div class="bar" style="flex: <?php
+                        echo max( 1, min( 20, $value / $all * 20 ) );
+                    ?>;"></div>
+                <?php } ?>
+            </div>
+            <div class="legend">
+                <?php foreach( $data as $label => $value ) { ?>
+                    <div class="item">
+                        <span class="marker"></span>
+                        <div class="label"><?php printf(
+                            __( '<b>%s</b> (%s)', 'wpwc' ),
+                            get_post_statuses()[ $label ],
+                            number_format_i18n( $value )
+                        ); ?></div>
+                    </div>
+                <?php } ?>
+            </div>
+        </div><?php
 
     }
 
