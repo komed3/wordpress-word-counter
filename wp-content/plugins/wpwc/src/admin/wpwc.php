@@ -47,7 +47,7 @@
 
                 $status = $types = $roles = [];
                 $__status = get_post_statuses();
-                $__roles = wp_roles();
+                $__roles = wp_roles()->roles;
 
                 foreach( $wpwc['status'] as $key => $val ) {
 
@@ -63,7 +63,7 @@
 
                 foreach( $wpwc['role'] as $key => $val ) {
 
-                    $roles[ $__roles->roles[ $key ]['name'] ] = $val;
+                    $roles[ $__roles[ $key ]['name'] ] = $val;
 
                 }
 
@@ -135,7 +135,7 @@
                                     <h3><a href="<?php echo get_edit_user_link( $author->ID ); ?>">
                                         <?php echo $author->display_name; ?>
                                     </a></h3>
-                                    <?php echo $author->user_email; ?>
+                                    <?php echo $__roles[ $author->roles[0] ]['name']; ?>
                                 </div>
                                 <div class="words">
                                     <?php echo number_format_i18n( $val, 0 ); ?>
