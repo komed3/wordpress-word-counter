@@ -155,6 +155,15 @@
                     <div class="wpwc-tab" id="wpwc__tax">
                         <h2><?php _e( 'Taxonomies', 'oipm' ); ?></h2>
                         <?php __wpwc_bar( $taxoms ); ?>
+                        <h2><?php _e( 'Terms', 'oipm' ); ?></h2>
+                        <div class="wpwc-boxes">
+                            <?php foreach( $wpwc['term'] as $key => $val ) { ?>
+                                <div class="wpwc-box">
+                                    <div class="value"><?php echo number_format_i18n( $val, 0 ); ?></div>
+                                    <div class="label"><?php echo get_term( $key )->name; ?></div>
+                                </div>
+                            <?php } ?>
+                        </div>
                     </div>
                 </div>
             <?php } ?>

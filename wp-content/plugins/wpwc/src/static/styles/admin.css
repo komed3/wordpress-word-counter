@@ -116,7 +116,7 @@
 
 .wpwc-admin .wpwc-boxes {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     justify-content: space-around;
     align-items: stretch;
     gap: 2em;
@@ -131,6 +131,8 @@
     gap: 0.6em;
     width: 260px;
     height: 100px;
+    line-height: 1;
+    text-align: center;
     color: var( --white );
     background: var( --primary );
 }
@@ -297,4 +299,22 @@
 .wpwc-admin .wpwc-author .words {
     font-size: 1.5em;
     font-weight: bolder;
+}
+
+.wpwc-admin #wpwc__tax .wpwc-boxes {
+    gap: 1em;
+}
+
+.wpwc-admin #wpwc__tax .wpwc-boxes .wpwc-box {
+    gap: 0.4em;
+    width: 180px;
+    height: 60px;
+}
+
+.wpwc-admin #wpwc__tax .wpwc-boxes .wpwc-box .value {
+    font-size: 1.6em;
+}
+
+.wpwc-admin #wpwc__tax .wpwc-boxes .wpwc-box .label {
+    font-size: 0.9em;
 }
