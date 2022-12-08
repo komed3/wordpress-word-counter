@@ -152,9 +152,10 @@
                     <div class="item">
                         <span class="marker"></span>
                         <div class="label"><?php printf(
-                            __( '<b>%s</b> (%s)', 'wpwc' ),
-                            get_post_statuses()[ $label ],
-                            number_format_i18n( $value )
+                            __( '<b>%s</b> %s words | %s%%', 'wpwc' ),
+                            $label,
+                            number_format_i18n( $value, 0 ),
+                            number_format_i18n( $value / $all * 100, 1 )
                         ); ?></div>
                     </div>
                 <?php } ?>

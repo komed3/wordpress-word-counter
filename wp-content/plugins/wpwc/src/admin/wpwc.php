@@ -43,7 +43,23 @@
                     <span class="label"><?php _e( 'Refresh', 'wpwc' ); ?></span>
                 </a>
             </div>
-            <?php if( $wpwc = __wpwc_get() ) { ?>
+            <?php if( $wpwc = __wpwc_get() ) {
+
+                $status = $types = [];
+
+                foreach( $wpwc['status'] as $key => $val ) {
+
+                    $status[ get_post_statuses()[ $key ] ] = $val;
+
+                }
+
+                foreach( $wpwc['type'] as $key => $val ) {
+
+                    $types[ get_post_type_object( $key )->label ] = $val;
+
+                }
+
+            ?>
                 <div class="wpwc-tabs">
                     <ul>
                         <li><a href="#wpwc__general">
@@ -85,7 +101,10 @@
                         <?php __wpwc_chart( $wpwc ); ?>
                     </div>
                     <div class="wpwc-tab" id="wpwc__type">
-                        <?php __wpwc_bar( $wpwc['status'] ); ?>
+                        <h2><?php _e( 'Post status', 'oipm' ); ?></h2>
+                        <?php __wpwc_bar( $status ); ?>
+                        <h2><?php _e( 'Post types', 'oipm' ); ?></h2>
+                        <?php __wpwc_bar( $types ); ?>
                     </div>
                     <div class="wpwc-tab" id="wpwc__author"></div>
                     <div class="wpwc-tab" id="wpwc__date"></div>
