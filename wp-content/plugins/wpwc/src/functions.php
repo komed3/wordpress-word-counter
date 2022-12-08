@@ -91,6 +91,31 @@
 
     }
 
+    function __wpwc_reading_time(
+        int $words = 0
+    ) {
+
+        global $__wpwc_reading_speed;
+
+        if( $words == 0 )
+            return '&mdash;';
+
+        $m = ceil( $words / $__wpwc_reading_speed );
+
+        foreach( [
+            525960 => __( 'Yrs', 'wpwc' ),
+            1440 => __( 'Day', 'wpwc' ),
+            60 => __( 'Hrs', 'wpwc' ),
+            1 => __( 'Min', 'wpwc' )
+        ] as $t => $l ) {
+
+            if( $m >= $t )
+                return number_format_i18n( $m / $t, 0 ) . '&nbsp;' . $l;
+
+        }
+
+    }
+
     function __wpwc_chart(
         array $wpwc,
         string $date_type = 'month'

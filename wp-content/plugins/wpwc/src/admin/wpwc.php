@@ -108,8 +108,8 @@
                                 <div class="label"><?php _e( 'All words', 'wpwc' ); ?></div>
                             </div>
                             <div class="wpwc-box">
-                                <div class="value"><?php echo number_format_i18n( $wpwc['status']['publish'], 0 ); ?></div>
-                                <div class="label"><?php _e( 'Published', 'wpwc' ); ?></div>
+                                <div class="value"><?php echo __wpwc_reading_time( $wpwc['any'] ); ?></div>
+                                <div class="label"><?php _e( 'Reading time', 'wpwc' ); ?></div>
                             </div>
                             <div class="wpwc-box">
                                 <div class="value"><?php echo number_format_i18n( $wpwc['any'] / max( 1, $wpwc['results'] ), 0 ); ?></div>
@@ -121,6 +121,32 @@
                             </div>
                         </div>
                         <?php __wpwc_chart( $wpwc ); ?>
+                    </div>
+                    <div class="wpwc-tab" id="wpwc__post">
+                        <table class="wp-list-table widefat striped">
+                            <thead>
+                                <tr>
+                                    <th class="column-title"><?php _e( 'Post', 'wpwc' ); ?></th>
+                                    <th class="column-title"><?php _e( 'Words', 'wpwc' ); ?></th>
+                                    <th class="column-title"><?php _e( 'Reading time', 'wpwc' ); ?></th>
+                                    <th class="column-title"><?php _e( 'Status', 'wpwc' ); ?></th>
+                                    <th class="column-title"><?php _e( 'Date', 'wpwc' ); ?></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php arsort( $wpwc['post'] ); foreach( array_slice( $wpwc['post'], 0, 99, true ) as $post => $words ) { ?>
+                                    <tr>
+                                        <td><a href="<?php the_permalink( $post ); ?>">
+                                            <?php echo get_the_title( $post ); ?>
+                                        </a></td>
+                                        <td><?php echo number_format_i18n( $words, 0 ); ?></td>
+                                        <td><?php echo __wpwc_reading_time( $words ); ?></td>
+                                        <td><?php echo $__status[ get_post_status( $post ) ]; ?></td>
+                                        <td><?php echo get_the_date( '', $post ); ?></td>
+                                    </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
                     </div>
                     <div class="wpwc-tab" id="wpwc__type">
                         <h2><?php _e( 'Post status', 'oipm' ); ?></h2>

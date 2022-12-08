@@ -12,6 +12,7 @@
 
     $__wpwc_build = '0.01 [ALPHA]';
     $__wpwc_capability = 'manage_options';
+    $__wpwc_reading_speed = 300;
 
     require_once __DIR__ . '/src/functions.php';
 
