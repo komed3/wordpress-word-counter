@@ -80,8 +80,12 @@
                             <span class="dashicons dashicons-chart-bar"></span>
                             <span class="label"><?php _e( 'General', 'wpwc' ); ?></span>
                         </a></li>
-                        <li><a href="#wpwc__type">
+                        <li><a href="#wpwc__post">
                             <span class="dashicons dashicons-admin-post"></span>
+                            <span class="label"><?php _e( 'Posts', 'wpwc' ); ?></span>
+                        </a></li>
+                        <li><a href="#wpwc__type">
+                            <span class="dashicons dashicons-format-aside"></span>
                             <span class="label"><?php _e( 'Types/States', 'wpwc' ); ?></span>
                         </a></li>
                         <li><a href="#wpwc__author">
@@ -100,16 +104,20 @@
                     <div class="wpwc-tab" id="wpwc__general">
                         <div class="wpwc-boxes">
                             <div class="wpwc-box">
-                                <div class="value"><?php echo number_format_i18n( $wpwc['any'] ); ?></div>
-                                <div class="label"><?php _e( 'Words', 'wpwc' ); ?></div>
+                                <div class="value"><?php echo number_format_i18n( $wpwc['any'], 0 ); ?></div>
+                                <div class="label"><?php _e( 'All words', 'wpwc' ); ?></div>
                             </div>
                             <div class="wpwc-box">
-                                <div class="value"><?php echo number_format_i18n( $wpwc['results'] ); ?></div>
-                                <div class="label"><?php _e( 'Results', 'wpwc' ); ?></div>
+                                <div class="value"><?php echo number_format_i18n( $wpwc['status']['publish'], 0 ); ?></div>
+                                <div class="label"><?php _e( 'Published', 'wpwc' ); ?></div>
                             </div>
                             <div class="wpwc-box">
-                                <div class="value"><?php echo date_i18n( __( 'm/d/Y', 'wpwc' ), strtotime( $wpwc['timestamp'] ) ); ?></div>
-                                <div class="label"><?php _e( 'Date', 'wpwc' ); ?></div>
+                                <div class="value"><?php echo number_format_i18n( $wpwc['any'] / max( 1, $wpwc['results'] ), 0 ); ?></div>
+                                <div class="label"><?php _e( 'Post average', 'wpwc' ); ?></div>
+                            </div>
+                            <div class="wpwc-box">
+                                <div class="value"><?php echo number_format_i18n( max( $wpwc['post'] ), 0 ); ?></div>
+                                <div class="label"><?php _e( 'Longest post', 'wpwc' ); ?></div>
                             </div>
                         </div>
                         <?php __wpwc_chart( $wpwc ); ?>

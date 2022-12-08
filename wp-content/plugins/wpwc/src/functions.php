@@ -34,6 +34,8 @@
 
             }
 
+            $wc['post'][ $post->ID ] = $count;
+
             $wc['results']++;
             $wc['any'] += $count;
 
