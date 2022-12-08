@@ -45,17 +45,25 @@
             </div>
             <?php if( $wpwc = __wpwc_get() ) {
 
-                $status = $types = [];
+                $status = $types = $roles = [];
+                $__status = get_post_statuses();
+                $__roles = wp_roles();
 
                 foreach( $wpwc['status'] as $key => $val ) {
 
-                    $status[ get_post_statuses()[ $key ] ] = $val;
+                    $status[ $__status[ $key ] ] = $val;
 
                 }
 
                 foreach( $wpwc['type'] as $key => $val ) {
 
                     $types[ get_post_type_object( $key )->label ] = $val;
+
+                }
+
+                foreach( $wpwc['role'] as $key => $val ) {
+
+                    $roles[ $__roles->roles[ $key ]['name'] ] = $val;
 
                 }
 
@@ -106,7 +114,37 @@
                         <h2><?php _e( 'Post types', 'oipm' ); ?></h2>
                         <?php __wpwc_bar( $types ); ?>
                     </div>
-                    <div class="wpwc-tab" id="wpwc__author"></div>
+                    <div class="wpwc-tab" id="wpwc__author">
+                        <h2><?php _e( 'Authors', 'oipm' ); ?></h2>
+                        <?php
+
+                            $author_max = max( $wpwc['author'] );
+                            arsort( $wpwc['author'] );
+
+                            foreach( $wpwc['author'] as $key => $val ) {
+
+                                $author = get_user_by( 'ID', $key );
+
+                            ?>
+                            <div class="wpwc-author">
+                                <div class="fill" style="width: <?php
+                                    echo ( $val / $author_max * 100 );
+                                ?>%;"></div>
+                                <?php echo get_avatar( $author->user_email, 32 ); ?>
+                                <div class="info">
+                                    <h3><a href="<?php echo get_edit_user_link( $author->ID ); ?>">
+                                        <?php echo $author->display_name; ?>
+                                    </a></h3>
+                                    <?php echo $author->user_email; ?>
+                                </div>
+                                <div class="words">
+                                    <?php echo number_format_i18n( $val, 0 ); ?>
+                                </div>
+                            </div>
+                        <?php } ?>
+                        <h2><?php _e( 'User roles', 'oipm' ); ?></h2>
+                        <?php __wpwc_bar( $roles ); ?>
+                    </div>
                     <div class="wpwc-tab" id="wpwc__date"></div>
                     <div class="wpwc-tab" id="wpwc__tax"></div>
                 </div>

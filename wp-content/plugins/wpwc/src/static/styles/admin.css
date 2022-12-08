@@ -17,6 +17,15 @@
     box-shadow: none !important;
 }
 
+.wpwc-admin a:link,
+.wpwc-admin a:visited {
+    color: var( --primary );
+}
+
+.wpwc-admin a:hover {
+    color: var( --secondary );
+}
+
 .wpwc-admin .wpwc-button:link,
 .wpwc-admin .wpwc-button:visited,
 .wpwc-admin .wpwc-button:hover {
@@ -254,4 +263,38 @@
 .wpwc-admin .wpwc-footer p {
     margin-top: 2em;
     color: var( --gray );
+}
+
+.wpwc-admin .wpwc-author {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 1em;
+    margin: 0.5em 0;
+    height: 52px;
+    padding: 0.5em 1.2em;
+}
+
+.wpwc-admin .wpwc-author .fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background: var( --primary );
+    opacity: 0.1;
+    z-index: -1;
+}
+
+.wpwc-admin .wpwc-author .info {
+    flex: 1;
+}
+
+.wpwc-admin .wpwc-author .info h3 {
+    margin: 0;
+}
+
+.wpwc-admin .wpwc-author .words {
+    font-size: 1.5em;
+    font-weight: bolder;
 }
