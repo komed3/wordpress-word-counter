@@ -45,7 +45,7 @@
             </div>
             <?php if( $wpwc = __wpwc_get() ) {
 
-                $status = $types = $roles = [];
+                $status = $types = $roles = $taxoms = [];
                 $__status = get_post_statuses();
                 $__roles = wp_roles()->roles;
 
@@ -64,6 +64,12 @@
                 foreach( $wpwc['role'] as $key => $val ) {
 
                     $roles[ $__roles[ $key ]['name'] ] = $val;
+
+                }
+
+                foreach( $wpwc['tax'] as $key => $val ) {
+
+                    $taxoms[ get_taxonomy( $key )->label ] = $val;
 
                 }
 
@@ -146,7 +152,10 @@
                         <?php __wpwc_bar( $roles ); ?>
                     </div>
                     <div class="wpwc-tab" id="wpwc__date"></div>
-                    <div class="wpwc-tab" id="wpwc__tax"></div>
+                    <div class="wpwc-tab" id="wpwc__tax">
+                        <h2><?php _e( 'Taxonomies', 'oipm' ); ?></h2>
+                        <?php __wpwc_bar( $taxoms ); ?>
+                    </div>
                 </div>
             <?php } ?>
             <div class="wpwc-footer">
