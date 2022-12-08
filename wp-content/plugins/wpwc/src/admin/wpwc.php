@@ -121,6 +121,8 @@
                         <?php __wpwc_bar( $types ); ?>
                     </div>
                     <div class="wpwc-tab" id="wpwc__author">
+                        <h2><?php _e( 'User roles', 'oipm' ); ?></h2>
+                        <?php __wpwc_bar( $roles ); ?>
                         <h2><?php _e( 'Authors', 'oipm' ); ?></h2>
                         <?php
 
@@ -148,8 +150,6 @@
                                 </div>
                             </div>
                         <?php } ?>
-                        <h2><?php _e( 'User roles', 'oipm' ); ?></h2>
-                        <?php __wpwc_bar( $roles ); ?>
                     </div>
                     <div class="wpwc-tab" id="wpwc__date"></div>
                     <div class="wpwc-tab" id="wpwc__tax">
