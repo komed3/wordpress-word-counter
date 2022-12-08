@@ -26,6 +26,11 @@
     color: var( --secondary );
 }
 
+.wpwc-admin .centered,
+.wpwc-admin .centered * {
+    text-align: center;
+}
+
 .wpwc-admin .wpwc-button:link,
 .wpwc-admin .wpwc-button:visited,
 .wpwc-admin .wpwc-button:hover {
@@ -154,7 +159,7 @@
     flex-flow: row nowrap;
     align-items: flex-end;
     gap: 2px;
-    margin: 4em 0 0 0;
+    margin: 4em 0;
     padding: 0.5em 0;
     width: calc( 100% - 70px );
     height: 240px;

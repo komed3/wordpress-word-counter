@@ -188,6 +188,38 @@
                     <div class="wpwc-tab" id="wpwc__date">
                         <h2><?php _e( 'Years', 'oipm' ); ?></h2>
                         <?php __wpwc_chart( $wpwc, 'year' ); ?>
+                        <h2><?php _e( 'Months', 'oipm' ); ?></h2>
+                        <table class="wp-list-table widefat fixed striped centered">
+                            <thead>
+                                <tr>
+                                    <th class="column-title"><?php _e( 'Year', 'wpwc' ); ?></th>
+                                    <th class="column-title"><?php _e( 'Jan', 'wpwc' ); ?></th>
+                                    <th class="column-title"><?php _e( 'Feb', 'wpwc' ); ?></th>
+                                    <th class="column-title"><?php _e( 'Mrz', 'wpwc' ); ?></th>
+                                    <th class="column-title"><?php _e( 'Apr', 'wpwc' ); ?></th>
+                                    <th class="column-title"><?php _e( 'May', 'wpwc' ); ?></th>
+                                    <th class="column-title"><?php _e( 'Jun', 'wpwc' ); ?></th>
+                                    <th class="column-title"><?php _e( 'Jul', 'wpwc' ); ?></th>
+                                    <th class="column-title"><?php _e( 'Aug', 'wpwc' ); ?></th>
+                                    <th class="column-title"><?php _e( 'Sep', 'wpwc' ); ?></th>
+                                    <th class="column-title"><?php _e( 'Oct', 'wpwc' ); ?></th>
+                                    <th class="column-title"><?php _e( 'Nov', 'wpwc' ); ?></th>
+                                    <th class="column-title"><?php _e( 'Dec', 'wpwc' ); ?></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach( array_keys( $wpwc['year'] ) as $year ) { ?>
+                                    <tr>
+                                        <td><?php echo $year; ?></td>
+                                        <?php for( $m = 1; $m <= 12; $m++ ) { ?>
+                                            <td><?php echo number_format_i18n( $wpwc['month'][
+                                                $year . '-' . str_pad( $m, 2, '0', STR_PAD_LEFT )
+                                            ] ?? 0, 0 ); ?></td>
+                                        <?php } ?>
+                                    </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
                     </div>
                     <div class="wpwc-tab" id="wpwc__tax">
                         <h2><?php _e( 'Taxonomies', 'oipm' ); ?></h2>
