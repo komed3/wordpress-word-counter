@@ -95,7 +95,8 @@
     ) {
 
         if( empty( $data = array_reverse(
-            array_slice( $wpwc[ $date_type ], 0, 99 )
+            array_slice( $wpwc[ $date_type ], 0, 99, true ),
+            true
         ) ) ) return '';
 
         ?><div class="wpwc-chart"><?php

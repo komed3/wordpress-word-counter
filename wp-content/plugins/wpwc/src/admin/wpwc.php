@@ -151,7 +151,10 @@
                             </div>
                         <?php } ?>
                     </div>
-                    <div class="wpwc-tab" id="wpwc__date"></div>
+                    <div class="wpwc-tab" id="wpwc__date">
+                        <h2><?php _e( 'Years', 'oipm' ); ?></h2>
+                        <?php __wpwc_chart( $wpwc, 'year' ); ?>
+                    </div>
                     <div class="wpwc-tab" id="wpwc__tax">
                         <h2><?php _e( 'Taxonomies', 'oipm' ); ?></h2>
                         <?php __wpwc_bar( $taxoms ); ?>
