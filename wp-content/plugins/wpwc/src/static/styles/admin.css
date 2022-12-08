@@ -262,11 +262,6 @@
     font-weight: bolder;
 }
 
-.wpwc-admin .wpwc-footer p {
-    margin-top: 2em;
-    color: var( --gray );
-}
-
 .wpwc-admin .wpwc-author {
     position: relative;
     display: flex;
@@ -317,4 +312,16 @@
 
 .wpwc-admin #wpwc__tax .wpwc-boxes .wpwc-box .label {
     font-size: 0.9em;
+}
+
+.wpwc-admin .wpwc-footer p {
+    margin-top: 2em;
+    color: var( --gray );
+}
+
+.wpwc-admin .wpwc-footer p a:link,
+.wpwc-admin .wpwc-footer p a:visited,
+.wpwc-admin .wpwc-footer p a:hover {
+    text-decoration: none;
+    color: var( --gray );
 }

@@ -205,9 +205,11 @@
                 </div>
             <?php } ?>
             <div class="wpwc-footer">
-                <p><?php printf(
-                    __( 'WPWC %s | &copy; 2022 by komed3.', 'wpwc' ),
-                    $__wpwc_build,
+                <p><?php $plugin_data = get_plugin_data( ABSPATH . 'wp-content/plugins/wpwc/wpwc.php' ); printf(
+                    __( '%s %s | &copy; %s', 'wpwc' ),
+                    $plugin_data['Title'],
+                    $plugin_data['Version'],
+                    $plugin_data['Author'],
                 ); ?></p>
             </div>
         </div><?php
