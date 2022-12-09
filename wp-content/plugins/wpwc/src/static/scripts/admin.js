@@ -6,6 +6,12 @@
 
         e.preventDefault();
 
+        let button = $( this ),
+            spinner = button.next( '.processing' );
+
+        button.css( 'display', 'none' );
+        spinner.css( 'display', 'flex' );
+
         $.ajax( {
             url: __wpwc.ajaxurl,
             type: 'POST',

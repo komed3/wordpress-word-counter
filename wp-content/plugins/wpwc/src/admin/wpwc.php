@@ -42,6 +42,10 @@
                     <span class="dashicons dashicons-update"></span>
                     <span class="label"><?php _e( 'Refresh', 'wpwc' ); ?></span>
                 </a>
+                <div class="processing">
+                    <span class="dashicons dashicons-update spinning"></span>
+                    <span class="label"><?php _e( 'Processing. This may take some time …', 'wpwc' ); ?></span>
+                </div>
             </div>
             <?php if( $wpwc = __wpwc_get() ) {
 
