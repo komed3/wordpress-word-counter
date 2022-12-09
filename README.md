@@ -1,5 +1,9 @@
 # WordPress word counter
 
+[![Version 0.01 [ALPHA]](https://img.shields.io/badge/version-0.01%20%5BALPHA%5D-orange)](https://github.com/komed3/wordpress-word-counter/releases)
+[![MIT license](https://img.shields.io/badge/license-MIT-green)](https://github.com/komed3/wordpress-word-counter/blob/master/LICENSE)
+[![Tested on WordPress 6.1.x](https://img.shields.io/badge/wordpress-v6.1.x%20tested-brightgreen)](https://wordpress.org)
+
 WordPress tool to calculate word count in all posts. Fast processing using standard WordPress functions, clear statistics in admin area.
 
 - Version 0.01 [ALPHA]
