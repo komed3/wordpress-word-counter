@@ -273,9 +273,9 @@
 
         require_once __DIR__ . '/admin/wpwc.php';
 
-        wp_register_style( '__wpwc_admin', plugin_dir_url( __FILE__ ) . 'static/styles/admin.css' );
+        wp_register_style( '__wpwc_admin', plugin_dir_url( __FILE__ ) . 'static/styles/admin.min.css' );
 
-        wp_register_script( '__wpwc', plugin_dir_url( __FILE__ ) . 'static/scripts/admin.js', [ 'jquery-ui-tabs' ] );
+        wp_register_script( '__wpwc', plugin_dir_url( __FILE__ ) . 'static/scripts/admin.min.js', [ 'jquery-ui-tabs' ] );
         wp_localize_script( '__wpwc', '__wpwc', [ 'ajaxurl' => admin_url( 'admin-ajax.php' ) ] );
 
     } );
