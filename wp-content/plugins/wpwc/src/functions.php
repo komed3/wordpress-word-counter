@@ -1,5 +1,16 @@
 <?php
 
+    /**
+     * Calculation of word count in all posts or a subset of them.
+     * 
+     * @since 0.01 [ALPHA]
+     * 
+     * @param   array   $args   Arguments to retrieve posts.
+     *                          See WP_Query::parse_query() for all available arguments.
+     *                          Default []
+     * @return  array           Word counting result as multidimensional array.
+     */
+
     function __wpwc_word_counter(
         array $args = []
     ) {
@@ -86,20 +97,52 @@
 
     }
 
-    function __wpwc_update() {
+    /**
+     * Updating word count using __wpwc_word_counter().
+     * 
+     * @since 0.01 [ALPHA]
+     * 
+     * @param   array   $args   Arguments to retrieve posts.
+     *                          See WP_Query::parse_query() for all available arguments.
+     *                          Default []
+     * @return  bool            Result of update_option() function.
+     */
+
+    function __wpwc_update(
+        array $args = []
+    ) {
 
         return update_option( '__wpwc', json_encode(
-            __wpwc_word_counter(),
+            __wpwc_word_counter( $args ),
             JSON_NUMERIC_CHECK
         ) );
 
     }
+
+    /**
+     * Reading the __wpwc option with word count.
+     * 
+     * @since 0.01 [ALPHA]
+     * 
+     * @return  array|bool      On success, returns an array containing the last word count.
+     *                          If an error occurs, false will be returned.
+     */
 
     function __wpwc_get() {
 
         return empty( $wpwc = json_decode( get_option( '__wpwc', '{}' ), true ) ) ? false : $wpwc;
 
     }
+
+    /**
+     * Calculation of expected reading time for given word count.
+     * 
+     * @since 0.01 [ALPHA]
+     * 
+     * @param   int   $words    Word count.
+     *                          Default 0
+     * @return  string          Formatted expected reading time.
+     */
 
     function __wpwc_reading_time(
         int $words = 0
@@ -125,6 +168,19 @@
         }
 
     }
+
+    /**
+     * Output a column chart for time-based data.
+     * 
+     * @since 0.01 [ALPHA]
+     * 
+     * @param   array   $wpwc       The wpwc data array.
+     *                              Required.
+     * @param   string  $date_type  Period to evaluate for the diagram.
+     *                              Possible values: 'day', 'week', 'month', 'year'.
+     *                              Default 'month'
+     * @return  empty
+     */
 
     function __wpwc_chart(
         array $wpwc,
@@ -168,6 +224,17 @@
         </div></div><?php
 
     }
+
+    /**
+     * Output a bar chart processing given data.
+     * 
+     * @since 0.01 [ALPHA]
+     * 
+     * @param   array   $data   Array of data to be processed.
+     *                          Keys specify set names (should be unique), associated values specify the range.
+     *                          Default []
+     * @return  empty
+     */
 
     function __wpwc_bar(
         array $data = []
