@@ -1,9 +1,10 @@
 <?php
 
     function __wpwc_word_counter(
-        array $args = [],
-        bool $title = true
+        array $args = []
     ) {
+
+        global $__wpwc_titles;
 
         $wc = [
             'timestamp' => date( 'c' ),
@@ -17,7 +18,7 @@
         ], $args ) ) as $post ) {
 
             if( empty( $text = wp_strip_all_tags( trim(
-                    ( $title ? $post->post_title : '' ) . ' ' .
+                    ( $__wpwc_titles ? $post->post_title : '' ) . ' ' .
                     $post->post_content
                 ) ) ) || (
                 $count = count( explode( '-',
@@ -82,6 +83,15 @@
         $wc['time'] = microtime( true ) - $wc['time'];
 
         return $wc;
+
+    }
+
+    function __wpwc_update() {
+
+        return update_option( '__wpwc', json_encode(
+            __wpwc_word_counter(),
+            JSON_NUMERIC_CHECK
+        ) );
 
     }
 
@@ -197,7 +207,17 @@
         require_once __DIR__ . '/admin/wpwc.php';
 
         wp_register_style( '__wpwc_admin', plugin_dir_url( __FILE__ ) . 'static/styles/admin.css' );
+
         wp_register_script( '__wpwc', plugin_dir_url( __FILE__ ) . 'static/scripts/admin.js', [ 'jquery-ui-tabs' ] );
+        wp_localize_script( '__wpwc', '__wpwc', [ 'ajaxurl' => admin_url( 'admin-ajax.php' ) ] );
+
+    } );
+
+    add_action( 'wp_ajax_wpwc_update', function() {
+
+        require_once __DIR__ . '/ajax/update.php';
+
+        __wpwc_ajax__update();
 
     } );
 
